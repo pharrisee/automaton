@@ -169,7 +169,7 @@ func (gs GameServer) GetAdmins() (admins Admins, err error) {
 	lines := strings.Split(cr.Result, "\n")
 	lines = lines[2:]
 	i := 0
-	re := regexp.MustCompile(`(\d+?):\s+?(\d+)\s+?\(.+?:\s+?(.+?)\)`)
+	re := regexp.MustCompile(`(\d+?):\s+?(.+?_\d+)\s+?\(.+?:\s+?(.+?)\)`)
 	for _, line := range lines {
 		i++
 		if line == strings.TrimSpace(line) {
@@ -178,7 +178,7 @@ func (gs GameServer) GetAdmins() (admins Admins, err error) {
 		line = strings.TrimSpace(line)
 		matches := re.FindAllStringSubmatch(line, -1)
 		parts := matches[0][1:]
-		ad := Admin{Level: parts[0], SteamID: parts[1], Username: parts[2]}
+		ad := Admin{Level: parts[0], ID: parts[1], Username: parts[2]}
 		admins = append(admins, ad)
 	}
 	return

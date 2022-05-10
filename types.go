@@ -41,7 +41,7 @@ type Position struct {
 
 //OnlinePlayer ....
 type OnlinePlayer struct {
-	SteamID      string      `json:"steamid"`
+	ID           string      `json:"id"`
 	EntityID     json.Number `json:"entityid"`
 	IP           string      `json:"ip"`
 	Name         string      `json:"name"`
@@ -188,7 +188,7 @@ type ServerInfo struct {
 	Version                            StringType `json:"Version"`
 	IP                                 StringType `json:"IP"`
 	CountryCode                        StringType `json:"CountryCode"`
-	SteamID                            StringType `json:"SteamID"`
+	ID                                 StringType `json:"id"`
 	CompatibilityVersion               StringType `json:"CompatibilityVersion"`
 	Platform                           StringType `json:"Platform"`
 	ServerLoginConfirmationText        StringType `json:"ServerLoginConfirmationText"`
@@ -297,7 +297,7 @@ type LogEntry struct {
 type (
 	Admin struct {
 		Level    string
-		SteamID  string
+		ID       string
 		Username string
 	}
 	Admins []Admin
