@@ -10,7 +10,7 @@ import (
 	"github.com/go-resty/resty/v2"
 )
 
-//NewGameServer ....
+//NewGameServer create a game server struct based on passed params
 func NewGameServer(ip string, port string, user string, token string, schemeIn ...string) *GameServer {
 	scheme := "http"
 	if len(schemeIn) > 0 {
@@ -56,7 +56,7 @@ func (gs GameServer) fetchJSON(method string, retval interface{}, queries ...url
 	return
 }
 
-//GetStats ....
+//GetStats calles /api/getstats
 func (gs GameServer) GetStats() (stats Stats, err error) {
 	err = gs.fetchJSON("/api/getstats", &stats)
 	return
